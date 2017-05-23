@@ -29,3 +29,25 @@ Django是python下面一个很流行的web开发框架，是一个MTV框架。Dj
 - 添加忽略名单.gitignore文件：
 - git reset .   重置所有文件状态
 - 然后就可以：git commit -m 'msg'     git push    提交了
+
+### django连接mysql
+测试成功的情况是在python3.6和mysql5.7的情况下。其他情况未尝试。
+1. 安装mysql，可以按照教程来安装，最新版的mysql里面包含的内容比较多，所以可以选择只安装MySQL server。
+2. （在Python、django已经安装好的情况下，如果未安装好，请先分别安装这两个。）使用pip安装mysqlclient（暂时只在python3.6下安装成功了，python2.7下安装会报Microsoft Visual C++ 9.0没有安装，安装完之后还会报一个其他的错误，可能是版本不兼容）。
+3. 使用django创建项目，django-admin startproject projectname。在settings.py里面配置数据库连接
+```python
+django-admin startproject name
+cd name
+python manage.py startapp appname
+```
+4. 在app里面的models创建类（就是要在数据库里面生成的表）。创建完成后要
+```python
+python manage.py makemigrations(要在类有修改之后使用。1)
+python manage.py migrate(类建好之后使用。2)
+```
+5. 要是用的时候，
+```python
+from appname.models import Classname
+Classname.obejcts.all() #就可以获取Classname里面的所有数据
+```
+至此django连接mysql是可以正常使用了。
