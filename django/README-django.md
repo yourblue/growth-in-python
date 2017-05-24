@@ -51,3 +51,9 @@ from appname.models import Classname
 Classname.obejcts.all() #就可以获取Classname里面的所有数据
 ```
 至此django连接mysql是可以正常使用了。
+
+### django使用virtualenv
+virtualenv是一个虚拟的python运行环境，他可以和系统的共享库和其他的virtualenv隔离开，因此当我们需要在同一台电脑上使用不同的版本的库的时候，就需要安装一个virtualenv虚拟环境，接下来是总结的在windows下使用virtualenv的一些情况，以记录我之前一直尝试不成功的情况。
+1. 安装：直接使用pip install virtualenv，安装就好，安装完成后，他会在python的site-packages里面。
+2. 使用：virtualenv name，可以直接创建一个虚拟环境，默认参数是--no-site-packages。指的是不使用系统的库。cd name    Scripts\activate.bat(即可以激活虚拟环境[目前的尝试只在cmd中可以使用，在powershell中没有效果。])，deactivate.bat，即可以关闭虚拟环境。(用的是直接Scripts下面的activate.bat激活的虚拟环境，不是source，可能在linux环境下是用的source，在windows下无法使用)
+
